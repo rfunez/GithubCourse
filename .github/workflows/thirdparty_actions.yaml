@@ -4,24 +4,20 @@ on:
         branches: [develop]
     workflow_dispatch: 
 jobs:
-    checkout:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Repository
-              uses: actions/checkout@v4
-            - name: Check repo
-              run: |
-                    ls -latr
-                    cd docker
-                    ls -latr
-                    pwd
     install_docker:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
             - name: Install docker
               uses: docker/setup-docker-action@v4
             - name: Check docker installation
               run: docker --version  
             - name: Check dockerfile path
+              env:
+                docker_tag: 1.0.0
               run: |
                     ls -latr      
+                    cd docker 
+                    docker build -t nginx nginx-${{env.docker_tag}}
+                    docker image ls
