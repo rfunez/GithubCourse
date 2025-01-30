@@ -21,4 +21,7 @@ jobs:
             - name: Install docker
               uses: docker/setup-docker-action@v4
             - name: Check docker installation
-              run: docker --version        
+              run: docker --version  
+            - name: Check dockerfile path
+              run: |
+                    ls -latr      
