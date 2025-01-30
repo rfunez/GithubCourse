@@ -1,0 +1,20 @@
+name: 03 - Workflow Runners
+on: 
+    push: 
+        branches: [develop]
+    workflow_dispatch: 
+jobs:
+    ubuntu-echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show OS
+              shell: bash
+              run: |
+                   printenv | grep -i shell
+                   echo "Runner Linux OS $RUNNER_OS"
+    windows_echo:
+        runs-on: windows-latest
+        steps:
+            - name: Show OS
+              run: |
+                   echo "Runner Windows $RUNNER_OS"
