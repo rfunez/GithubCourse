@@ -12,7 +12,7 @@ jobs:
               run: |
                    printenv | grep -i shell
                    echo "Runner Linux OS $RUNNER_OS"
-    windows_step:
+    windows_echo:
         runs-on: windows-latest
         steps:
             - name: Show OS
