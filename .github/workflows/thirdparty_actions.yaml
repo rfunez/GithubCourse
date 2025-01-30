@@ -1,0 +1,22 @@
+name: Third Party Workflow
+on: 
+    push: 
+        branches: [develop]
+    workflow_dispatch: 
+jobs:
+    checkout:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: action/checkout@v4
+            - name: Check repo
+              run: |
+                    ls -latr
+                    pwd
+    install_docker:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install docker
+              uses: docker/setup-docker-action@v4
+            - name: Check docker installation
+              run: docker --version        
