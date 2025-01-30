@@ -8,7 +8,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Hello Step
-              run: echo 'hi'
+              run: |
+                    pwd
+                    echo 'hi'
     echo-bye:
         runs-on: ubuntu-latest
         steps:
