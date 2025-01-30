@@ -1,0 +1,11 @@
+name: 02 - Workflow Events
+on:
+    push: 
+jobs:
+    echo-evt:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "echo trigger"
+              run: echo "El trigger es : ${{github.event}}"
+        
+        
