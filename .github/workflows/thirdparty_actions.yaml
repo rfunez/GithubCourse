@@ -1,8 +1,8 @@
 name: Third Party Workflow
 on: 
+    workflow_dispatch:
     push: 
-        branches: [develop]
-    workflow_dispatch: 
+        branches: [develop] 
 jobs:
     install_docker:
         runs-on: ubuntu-latest
