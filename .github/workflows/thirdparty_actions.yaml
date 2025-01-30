@@ -19,5 +19,5 @@ jobs:
               run: |
                     ls -latr      
                     cd docker 
-                    docker build -t nginx nginx-${{env.docker_tag}} .
+                    docker build -t nginx-${{env.docker_tag}} .
                     docker image ls
