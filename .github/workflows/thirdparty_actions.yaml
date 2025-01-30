@@ -11,7 +11,7 @@ jobs:
             working-directory: docker
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Install docker
               uses: docker/setup-docker-action@v4
             - name: Check docker installation
