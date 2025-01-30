@@ -9,6 +9,11 @@ jobs:
               run: |
                     pwd
                     echo 'hi'
+    error-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Error step
+              run: exit 1
     echo-bye:
         runs-on: ubuntu-latest
         steps:
