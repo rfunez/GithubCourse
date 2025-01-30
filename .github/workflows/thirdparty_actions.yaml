@@ -12,6 +12,8 @@ jobs:
             - name: Check repo
               run: |
                     ls -latr
+                    cd docker
+                    ls -latr
                     pwd
     install_docker:
         runs-on: ubuntu-latest
