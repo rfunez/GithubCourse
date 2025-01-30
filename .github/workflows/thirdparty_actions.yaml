@@ -1,5 +1,7 @@
 name: Third Party Workflow
 on: 
+    push: 
+        branches: [develop]
     workflow_dispatch: 
 jobs:
     install_docker:
