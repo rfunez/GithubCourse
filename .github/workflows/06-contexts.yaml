@@ -1,0 +1,54 @@
+name: "06 - Contexts"
+on: 
+    workflow_dispatch: 
+        inputs:
+            debug:
+                type: boolean
+                default: false
+    push: 
+        branches: [main,develop]
+run-name: "06 - Contexts | DEBUG - ${{ inputs.debug }}"
+env:
+    MY_WORKFLOW_VAR: "workflow"
+    MY_OVERWRITTEN_VAR: "workflow"   
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Echo github context"
+              run: |
+                   echo "Event name ${{github.event_name}}"
+                   echo "Full Branch name ${{github.ref}}"
+                   echo "Branch name ${{github.ref_name}}"
+                   echo "Sha name ${{github.sha}}"
+                   echo "Actor name ${{github.actor}}"
+                   echo "Workflow name ${{github.workflow}}"
+                   echo "Run id name ${{github.run_id}}"
+                   echo "Run number  ${{github.run_number}}"
+            - name: "Retrieve repository variable"
+              run: | 
+                   echo "My repo var is : ${{vars.MY_VAR}}"
+            - name: "Print Env Variables"
+              env:
+                MY_OVERWRITTEN_VAR: "step"
+              run: |
+                   echo "Workflow overwritten env: ${{env.MY_OVERWRITTEN_VAR }} in job ${{github.job}}"
+                   echo "Workflow env: ${{env.MY_WORKFLOW_VAR }} in job ${{github.job}}"   
+    echo-data:
+        env:
+            MY_JOB_VAR: "job"
+            MY_OVERWRITTEN_VAR: "job"
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Retrieve env variables"
+              run: |
+                   echo "Job workflow var: ${{env.MY_JOB_VAR}} in job ${{github.job}}"
+                   echo "Job overwriten var: ${{env.MY_OVERWRITTEN_VAR}} in job ${{github.job}}"
+            - name: "Print Env Variables"
+              env:
+                  MY_JOB_VAR: 'step'
+                  MY_OVERWRITTEN_VAR: 'step'
+              run: |
+                    echo "Job workflow var: ${{env.MY_JOB_VAR}} in job ${{github.job}}"
+                    echo "Job overwriten var: ${{env.MY_OVERWRITTEN_VAR}} in job ${{github.job}}"
+
