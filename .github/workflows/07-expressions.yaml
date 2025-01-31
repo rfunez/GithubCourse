@@ -1,0 +1,24 @@
+name: "07 - Using Expressions"
+on: 
+    workflow_dispatch:
+        inputs:
+            debug:
+                type: boolean
+                default: false        
+    push: 
+        branches: develop
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "[debug] Print start-up data"
+              if: ${{inputs.debug}}
+              run: |
+                    echo "Triggered by: ${{github.event_name}}"
+                    echo "Branch : ${{github.ref_name}}"
+                    echo "Commit SHA: ${{github.sha}}"
+                    echo "Runner OS: $RUNNER_OS"
+                    
+
+  
+    
