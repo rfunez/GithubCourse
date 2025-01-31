@@ -7,7 +7,7 @@ on:
                 default: false
     push: 
         branches: [main,develop]
-run-name: "06 - Contexts | DEBUG - ${{ inputs.debug }}}"
+run-name: "06 - Contexts | DEBUG - ${{ inputs.debug }}"
 env:
     MY_WORKFLOW_VAR: "workflow"
     MY_OVERWRITTEN_VAR: "workflow"   
