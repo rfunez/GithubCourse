@@ -7,9 +7,8 @@ on:
                 default: false        
     push: 
         branches: develop
-env:
-    DEBUG:  ${{inputs.debug && ON || OFF}}
-run-name: "07 - Using Expressions | DEBUG - ${{env.DEBUG}}"
+        
+run-name: 07 - Using Expressions | DEBUG -  "${{inputs.debug && ON || OFF}}"
 jobs:
     echo:
         runs-on: ubuntu-latest
