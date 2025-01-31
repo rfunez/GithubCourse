@@ -10,14 +10,15 @@ jobs:
             - name: "Echo github context"
               run: |
                    echo "Event name ${{github.event_name}}"
-                   echo "Event name ${{github.ref}}"
-                   echo "Event name ${{github.ref_name}}"
-                   echo "Event name ${{github.sha}}"
-                   echo "Event name ${{github.actor}}"
-                   echo "Event name ${{github.workflow}}"
-                   echo "Event name ${{github.run_id}}"
-                   echo "Event name ${{github.run_number}}"
+                   echo "Full Branch name ${{github.ref}}"
+                   echo "Branch name ${{github.ref_name}}"
+                   echo "Sha name ${{github.sha}}"
+                   echo "Actor name ${{github.actor}}"
+                   echo "Workflow name ${{github.workflow}}"
+                   echo "Run id name ${{github.run_id}}"
+                   echo "Run number  ${{github.run_number}}"
             - name: "Retrieve repository variable"
-              run: echo "My repo var is : ${{env.MY_VAR}}"
+              run: |
+                   echo "My repo var is : ${{env.MY_VAR}}"
 
 
