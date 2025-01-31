@@ -3,7 +3,7 @@ on:
     workflow_dispatch: 
     push: 
         branches: [main,develop]
-run-name: "My custom workflow run name - ${{ runner.os }}"        
+run-name: "My custom workflow run name - ${{ RUNNER.OS }}"        
 jobs:
     echo:
         runs-on: ubuntu-latest
