@@ -40,6 +40,10 @@ jobs:
             MY_OVERWRITTEN_VAR: "job"
         runs-on: ubuntu-latest
         steps:
+            - name: "Retrieve env variables"
+              run: |
+                   echo "Job workflow var: ${{env.MY_JOB_VAR}} in job ${{github.job}}"
+                   echo "Job overwriten var: ${{env.MY_OVERWRITTEN_VAR}} in job ${{github.job}}
             - name: "Print Env Variables"
               env:
                   MY_JOB_VAR: 'step'
