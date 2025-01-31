@@ -18,6 +18,7 @@ jobs:
                    echo "Event name ${{github.run_id}}"
                    echo "Event name ${{github.run_number}}"
             - name: "Retrieve repository variable"
-              run: echo "My repo var is : ${{env.MY_VAR}}"
+              run: | 
+                   echo "My repo var is : ${{env.MY_VAR}}"
 
 
