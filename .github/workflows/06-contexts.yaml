@@ -19,6 +19,6 @@ jobs:
                    echo "Run number  ${{github.run_number}}"
             - name: "Retrieve repository variable"
               run: | 
-                   echo "My repo var is : ${{var.MY_VAR}}"
+                   echo "My repo var is : ${{vars.MY_VAR}}"
 
 
